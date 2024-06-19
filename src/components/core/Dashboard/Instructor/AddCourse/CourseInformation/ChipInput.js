@@ -13,8 +13,9 @@ export default function ChipInput({
 }) {
     const { editCourse, course } = useSelector((state) => state.course)
 
-    // Setting up state for managing chips array
+    // Setting up state for managing chips array and input value
     const [chips, setChips] = useState([])
+    const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
         if (editCourse) {
@@ -43,7 +44,7 @@ export default function ChipInput({
                 // Add the chip to the array and clear the input
                 const newChips = [...chips, chipValue]
                 setChips(newChips)
-                event.target.value = ""
+                setInputValue('') // Clear the input value
             }
         }
     }
@@ -53,6 +54,21 @@ export default function ChipInput({
         // Filter the chips array to remove the chip with the given index
         const newChips = chips.filter((_, index) => index !== chipIndex)
         setChips(newChips)
+    }
+
+    // Function to handle change in input value
+    const handleChange = (event) => {
+        setInputValue(event.target.value)
+    }
+
+    // Function to handle addition of requirement
+    const handleAddRequirement = () => {
+        const chipValue = inputValue.trim()
+        if (chipValue && !chips.includes(chipValue)) {
+            const newChips = [...chips, chipValue]
+            setChips(newChips)
+            setInputValue('')
+        }
     }
 
     // Render the component
@@ -88,9 +104,21 @@ export default function ChipInput({
                     name={name}
                     type="text"
                     placeholder={placeholder}
+                    value={inputValue}
+                    onChange={handleChange}
                     onKeyDown={handleKeyDown}
-                    className=" w-full text-richblack-100  bg-richblack-700 h-[2rem] md:h-[3rem] rounded-md px-3 shadow-sm shadow-richblack-200 focus:outline-none focus:bg-richblack-700"
+                    className="w-full text-richblack-100 bg-richblack-700 h-[2rem] md:h-[3rem] rounded-md px-3 shadow-sm shadow-richblack-200 focus:outline-none focus:bg-richblack-700"
                 />
+                {/* Conditionally render the Add button */}
+                {inputValue && (
+                    <button
+                        type="button"
+                        onClick={handleAddRequirement}
+                        className="font-semibold text-yellow-50"
+                    >
+                        Add
+                    </button>
+                )}
             </div>
             {/* Render an error message if the input is required and not filled */}
             {errors[name] && (
