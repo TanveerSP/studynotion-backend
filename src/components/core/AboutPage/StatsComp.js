@@ -2,27 +2,27 @@ import React, { useEffect, useRef } from 'react';
 import CountUp from 'react-countup';
 
 const stats = [
-    { count: "5K", label: "Active Student" },
-    { count: "10+", label: "Mentors" },
-    { count: "200+", label: "Courses" },
-    { count: "50+", label: "Awards" },
+    { count: "5K", label: "Active Students" },
+    { count: "10", label: "Mentors" },
+    { count: "200", label: "Courses" },
+    { count: "50", label: "Awards" },
 ];
 
 const StatsComp = () => {
     const countUpRefs = useRef([]);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (isComponentInViewport()) {
-                resetCounts();
-            }
-        };
-
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const handleScroll = () => {
+        if (isComponentInViewport()) {
+            resetCounts();
+        }
+    };
 
     const isComponentInViewport = () => {
         const element = document.getElementById('stats-section');
@@ -49,12 +49,15 @@ const StatsComp = () => {
                     {stats.map((data, index) => (
                         <div className='flex flex-col py-10 items-center' key={index}>
                             <div className='flex flex-row text-center gap-1 items-center'>
-                                <CountUp start={0} end={parseCount(data.count)} duration={5} delay={3} ref={(countUp) => (countUpRefs.current[index] = countUp)}>
+                                <CountUp start={0} end={parseCount(data.count)} duration={10} ref={(countUp) => (countUpRefs.current[index] = countUp)}>
                                     {({ countUpRef }) => (
                                         <h1 className='font-bold text-[2rem] text-richblack-5' ref={countUpRef} />
                                     )}
                                 </CountUp>
-                                <h1 className='text-center font-bold text-[26px] text-richblack-5'>+</h1>
+                                {data.count.includes('+') && (
+                                    <h1 className='text-center font-bold text-[26px] text-richblack-5'>+</h1>
+                                )}
+                                <h1 className='text-center font-bold text-[26px] text-yellow-50'>+</h1>
                             </div>
                             <h2 className='text-richblack-300 text-[16px] font-inter'>{data.label}</h2>
                         </div>
