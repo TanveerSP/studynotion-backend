@@ -208,6 +208,33 @@ function LoginForm() {
                         </p>
                     </Link>
                 </label>
+
+                {/* Take Demo  */}
+                <div className="mt-4 bg-richblack-800 border-[1px] border-richblack-700 rounded-md px-3 py-3" >
+                    <h3 className="text-white text-center text-2xl font-semibold ">
+                        Take a Demo
+                    </h3>
+                    <div className="mt-4 flex justify-between ">
+                        <button
+                            onClick={() => handleDemoLogin('instructor')}
+                            className="rounded-[8px] bg-yellow-50 border-[1px] border-richblack-700 py-[8px] px-[12px] font-semibold text-richblack-800 mb-4"
+                        >
+                            <div className="flex gap-2 items-center">
+                                Demo Instructor<GrUserManager size={20} />
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => handleDemoLogin('student')}
+                            className="rounded-[8px]  bg-yellow-50 border-[1px] border-richblack-700 py-[8px] px-[12px] text-richblack-800 font-semibold mb-4 mx-4"
+                        >
+                            <div className="flex gap-2 items-center">
+                                Demo Student <PiStudentBold size={20} />
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Login  */}
                 <button
                     type="submit"
                     className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
@@ -215,30 +242,6 @@ function LoginForm() {
                     Sign In
                 </button>
             </form>
-
-            <div className="mt-4 bg-richblack-800 border-[1px] border-richblack-700 rounded-md px-2 py-3" >
-                <h3 className="text-white text-center text-2xl font-semibold ">
-                    Take a Demo
-                </h3>
-                <div className="mt-4 flex justify-between">
-                    <button
-                        onClick={() => handleDemoLogin('instructor')}
-                        className="rounded-[8px] bg-yellow-50 border-[1px] border-richblack-700 py-[8px] px-[12px] font-semibold text-richblack-800"
-                    >
-                        <div className="flex gap-2 items-center">
-                            Demo Instructor<GrUserManager size={20} />
-                        </div>
-                    </button>
-                    <button
-                        onClick={() => handleDemoLogin('student')}
-                        className="rounded-[8px]  bg-yellow-50 border-[1px] border-richblack-700 py-[8px] px-[12px] text-richblack-800 font-semibold"
-                    >
-                        <div className="flex gap-2 items-center">
-                            Demo Student <PiStudentBold size={20} />
-                        </div>
-                    </button>
-                </div>
-            </div>
         </>
     )
 }
