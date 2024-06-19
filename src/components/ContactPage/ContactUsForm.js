@@ -113,16 +113,17 @@ const ContactUsForm = () => {
                             </span>
                         )}
                     </div>
+
                     {/* Phone Number*/}
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col gap-2'>
 
                         <label htmlFor="phonenumber" className='mb-1  text-richblack-5'>
                             Phone Number <sup className='text-pink-200'>*</sup>
                         </label>
 
-                        <div className='flex flex-row gap-6 '>
+                        <div className='flex gap-6 '>
                             {/* dropdown */}
-                            <div className='flex w-[15%] gap-5'>
+                            <div className="flex w-[81px] flex-col gap-2">
                                 <select
                                     name="dropdown"
                                     id="dropdown"
@@ -143,8 +144,9 @@ const ContactUsForm = () => {
                                     }
                                 </select>
                             </div>
+
                             {/* phone number fild */}
-                            <div className='w-[80%]'>
+                            <div className="flex w-[calc(100%-90px)] flex-col gap-2">
                                 <input
                                     type="number"
                                     name='phonenumber'
