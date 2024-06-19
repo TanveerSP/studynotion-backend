@@ -63,7 +63,7 @@ const ContactUsForm = () => {
                             id='firstName'
                             placeholder='Enter First Name'
                             {...register("firstName", { required: true })}
-                            className='w-full bg-richblack-700 h-[3rem] rounded-md px-3 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
+                            className='w-full bg-richblack-700 h-[3rem] rounded-md px-3 text-richblack-5 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
                         />
                         {errors.firstName && (
                             <span>
@@ -83,7 +83,7 @@ const ContactUsForm = () => {
                             id='laseName'
                             placeholder='Enter Last Name'
                             {...register("laseName", { required: true })}
-                            className='w-full bg-richblack-700 h-[3rem] rounded-md px-3 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
+                            className='w-full bg-richblack-700 h-[3rem] rounded-md px-3 shadow-sm text-richblack-5 shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
                         />
                         {errors.laseName && (
                             <span>
@@ -105,7 +105,7 @@ const ContactUsForm = () => {
                             id='email'
                             placeholder='email'
                             {...register("email", { required: true })}
-                            className='w-full bg-richblack-700 h-[3rem] rounded-md px-3 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
+                            className='w-full bg-richblack-700 h-[3rem] rounded-md px-3 shadow-sm text-richblack-5 shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
                         />
                         {errors.email && (
                             <span>
@@ -128,7 +128,7 @@ const ContactUsForm = () => {
                                     name="dropdown"
                                     id="dropdown"
                                     {...register("countrycode", { required: true })}
-                                    className='w-[4.9rem] rounded-md text-richblack-5 bg-richblack-700 py-3 px-1 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
+                                    className='w-[4.9rem] rounded-md text-richblack-5 bg-richblack-700 py-[14px] px-1 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
                                 >
                                     {
                                         ContryCode.map((element, index) => {
@@ -184,7 +184,7 @@ const ContactUsForm = () => {
                             rows="7"
                             placeholder='Enter your message'
                             {...register("message", { require: true })}
-                            className='w-full bg-richblack-700 rounded-md py-3 px-3 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700'
+                            className='w-full bg-richblack-700 rounded-md py-3 px-3 shadow-sm shadow-richblack-200 focus:outline-yellow-50 focus:bg-richblack-700 text-richblack-5'
                         >
                         </textarea>
                         {
