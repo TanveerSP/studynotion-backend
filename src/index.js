@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import rootReducer from './reducer';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const store = configureStore({
   reducer: rootReducer,
@@ -20,6 +21,7 @@ root.render(
       <BrowserRouter>
         <App />
         <Toaster />
+        <SpeedInsights projectId="prj_P92UKZtLbkI3kk73c2cgya6T9bgd" />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
