@@ -5,12 +5,12 @@ import BannerImage2 from '../assets/Images/aboutus2.webp'
 import BannerImage3 from '../assets/Images/aboutus3.webp'
 import Quote from '../components/core/AboutPage/Quote'
 import FoundingStory from '../assets/Images/FoundingStory.png';
-// import StatsComponent from '../components/core/AboutPage/StatsComponent'
+import StatsComponent from '../components/core/AboutPage/StatsComponent'
 import LearningGrid from '../components/core/AboutPage/LearningGrid'
 import ContactForm from '../components/core/AboutPage/ContactForm'
 import Footer from '../components/common/Footer'
 import RedText from '../components/core/AboutPage/RedText'
-import StatsComp from '../components/core/AboutPage/StatsComp'
+// import StatsComp from '../components/core/AboutPage/StatsComp'
 import ReviewSlider from '../components/common/ReviewSlider'
 
 const About = () => {
@@ -115,8 +115,8 @@ const About = () => {
 
             {/* section 4 */}
             <section >
-                {/* <StatsComponent /> */}
-                <StatsComp />
+                <StatsComponent />
+                {/* <StatsComp /> */}
             </section >
 
             {/* section 5 */}

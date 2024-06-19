@@ -2,9 +2,9 @@ import React from 'react'
 
 const stats = [
     { count: "5K", label: "Active Student" },
-    { count: "10+", label: "Mentors" },
-    { count: "200+", label: "Courses" },
-    { count: "50+", label: "Awards" },
+    { count: "10", label: "Mentors" },
+    { count: "200", label: "Courses" },
+    { count: "50", label: "Awards" },
 ];
 
 const StatsComponent = () => {
@@ -19,7 +19,7 @@ const StatsComponent = () => {
                                     className='flex flex-col py-10'
                                     key={index}>
                                     <h1 className='font-bold text-[2rem] text-richblack-5'>
-                                        {data.count}
+                                        {data.count} <span className='text-yellow-50'>+</span>
                                     </h1>
                                     <h2 className='text-richblack-300 text-[16px] font-inter'>
                                         {data.label}
