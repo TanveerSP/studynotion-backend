@@ -123,7 +123,7 @@ export default function CoursesTable({ courses, setCourses }) {
                                     <Td className="text-left text-sm font-medium uppercase text-richblack-100 pivoted">
                                         <button
                                             title='Edit'
-                                            className="px-2 Transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
+                                            className="px-2 Transition-all duration-200 hover:scale-110 text-caribbeangreen-100 hover:text-caribbeangreen-300"
                                             disabled={loading}
                                             onClick={() => handleEdit(course._id)}
                                         >
@@ -132,7 +132,7 @@ export default function CoursesTable({ courses, setCourses }) {
 
                                         <button
                                             title='Delete'
-                                            className="px-1 Transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
+                                            className="px-1 Transition-all duration-200 hover:scale-110 text-pink-100 hover:text-[#ff0000]"
                                             disabled={loading}
                                             onClick={() => {
                                                 setConfirmationModal({
@@ -145,7 +145,7 @@ export default function CoursesTable({ courses, setCourses }) {
                                                 })
                                             }}
                                         >
-                                            <RiDeleteBin6Line fontSize={20} />
+                                            <RiDeleteBin6Line fontSize={20}/>
                                         </button>
                                     </Td>
                                 </Tr>
