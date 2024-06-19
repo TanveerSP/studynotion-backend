@@ -12,17 +12,17 @@ const StatsComp = () => {
     const countUpRefs = useRef([]);
 
     useEffect(() => {
+        const handleScroll = () => {
+            if (isComponentInViewport()) {
+                resetCounts();
+            }
+        };
+
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-    const handleScroll = () => {
-        if (isComponentInViewport()) {
-            resetCounts();
-        }
-    };
 
     const isComponentInViewport = () => {
         const element = document.getElementById('stats-section');
