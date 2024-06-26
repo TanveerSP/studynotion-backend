@@ -1,7 +1,7 @@
 import './App.css';
+
 import Loader from './components/common/Loader';
 import { Route, Routes } from "react-router-dom";
-import Navbar from './components/common/Navbar';
 import { Suspense } from 'react';
 
 import Error from './pages/Error';
@@ -19,7 +19,6 @@ import CourseDetails from './pages/CourseDetails';
 import OpenRoute from './components/core/Auth/OpenRoute';
 import PrivateRoute from './components/core/Auth/PrivateRoute';
 
-
 // profile or profile sidebar
 import Cart from './components/core/Dashboard/Cart/index'
 
@@ -33,29 +32,38 @@ import EnrolledCourses from './components/core/Dashboard/Student/EnrolledCourses
 import MyCourses from './components/core/Dashboard/Instructor/MyCourse/MyCourses';
 
 import { ACCOUNT_TYPE } from './utils/constants';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AddCourse from './components/core/Dashboard/Instructor/AddCourse';
 import EditCourse from './components/core/Dashboard/Instructor/Index';
 import ViewCourse from './pages/ViewCourse';
 import VideoDetails from './components/core/ViewCourse/VideoDetails'
-import NavbarAll from './components/common/NavbarAll';
+
 import Nav from './components/common/Navbar';
 import Instructor from './components/core/Dashboard/Instructor/InstructorDashboard/Instructor';
+
+import LoadingBar from 'react-top-loading-bar'
+import { setProgress } from './slice/loadingbarSlice';
 
 
 function App() {
 
   const { user } = useSelector((state) => state.profile)
+  const { progress } = useSelector((store) => store.loadingBar);
+  const dispatch = useDispatch();
 
   return (
     <div className='w-screen min-h-screen max-w-[100vw] bg-richblack-900 flex flex-col font-inter'>
 
       {/* Loding bar */}
-
+      <LoadingBar
+        color="#eccf0d"
+        progress={progress}
+        onLoaderFinished={() => dispatch(setProgress(0))}
+      />
 
       {/* Navbar    */}
-      <Nav />
+      <Nav setProgress={setProgress} />
       {/* <NavbarAll/> */}
       <Routes>
         <Route path='/' element={<Home />} />
@@ -128,7 +136,7 @@ function App() {
             )}
           {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
             <>
-            <Route path='dashboard/instructor' element={<Instructor />} />
+              <Route path='dashboard/instructor' element={<Instructor />} />
               <Route path="dashboard/my-courses" element={<MyCourses />} />
               <Route path="dashboard/add-course" element={<AddCourse />} />
               <Route
