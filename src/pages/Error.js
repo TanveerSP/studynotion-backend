@@ -22,7 +22,7 @@ const Error = () => {
     }, []);
 
     return (
-        <div className='body'>
+        <div className='w-full h-screen '>
 
             <div id='container' className='container'>
                 <div className='content'>
